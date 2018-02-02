@@ -1,0 +1,33 @@
+<div style="margin-left: 80px;margin-right: 80px;">
+  <table class="table table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Post</th>
+            <th>Autor</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of (posteos|async)">
+        <td>{{p.id}}</td>
+        <td>{{p.texto}}</td>
+        <td>{{p.usuario.nombre}}</td>
+        <td><a href="#no" (click)="onDelete(p)">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Agregar un post</h4>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <textarea class="form-control" [(ngModel)]="post.texto" required  name="texto"></textarea>
+
+    </div>
+
+    <button class="btn btn-primary">Guardar!</button>
+
+
+  </form>
+
+
+</div>
